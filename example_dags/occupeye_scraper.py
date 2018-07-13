@@ -19,7 +19,7 @@ try:
         namespace="airflow",
         image="robinlinacre/airflow-occupeye-scraper:firsttry",
         cmds=[""],
-        arguments=["python main.py --myoption myarg""],
+        arguments=["python main.py --myoption myarg"],
         labels={"foo": "bar"},
         name="airflow-test-pod",
         in_cluster=True,
