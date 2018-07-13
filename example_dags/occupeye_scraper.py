@@ -18,7 +18,7 @@ try:
     k = KubernetesPodOperator(
         namespace="airflow",
         image="robinlinacre/airflow-occupeye-scraper:firsttry",
-        cmds=["],
+        cmds=[""],
         arguments=["python main.py --myoption myarg""],
         labels={"foo": "bar"},
         name="airflow-test-pod",
