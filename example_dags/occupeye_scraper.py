@@ -10,7 +10,7 @@ try:
     args = {"owner": "airflow", "start_date": days_ago(1)}
 
     dag = DAG(
-        dag_id="example_kubernetes_operator_assume_role",
+        dag_id="occupeye_scraper",
         default_args=args,
         schedule_interval=None,
     )
