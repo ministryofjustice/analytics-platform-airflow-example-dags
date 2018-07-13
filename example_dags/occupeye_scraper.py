@@ -18,8 +18,8 @@ try:
     k = KubernetesPodOperator(
         namespace="airflow",
         image="robinlinacre/airflow-occupeye-scraper:firsttry",
-        cmds=[""],
-        arguments=["python main.py --task_name surveys_to_s3"],
+        cmds=["python main.py --task_name surveys_to_s3"],
+        arguments=[""],
         labels={"foo": "bar"},
         name="airflow-test-pod",
         in_cluster=True,
