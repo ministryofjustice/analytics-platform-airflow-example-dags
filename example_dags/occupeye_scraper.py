@@ -8,7 +8,7 @@ log = LoggingMixin().log
 try:
     from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 
-    args = {"owner": "airflow", "start_date": days_ago(3), 'retries': 5, 'retry_delay': timedelta(minutes=1), 'pool': 'occupeye_pool'}
+    args = {"owner": "airflow", "start_date": "2017-01-01", 'retries': 5, 'retry_delay': timedelta(minutes=1), 'pool': 'occupeye_pool'}
 
     dag = DAG(
         dag_id="occupeye_scraper",
@@ -65,14 +65,9 @@ try:
         surveys_to_s3 >> sensor_fact_to_s3
 
 
-
-
-    # surveys_to_xcom >> surveys_to_s3
-
-    # surveys_to_s3
-
-    # v1 = surveys_to_xcom.xcom_pull(key='python_set', task_ids='push')
-
-
 except ImportError as e:
     log.warn("Could not import KubernetesPodOperator: " + str(e))
+
+
+# TODO:  Need to scrape sensor dimension every day
+# TODO:  Need it to scrape each
