@@ -32,7 +32,7 @@ try:
 
     surveys_to_s3 = KubernetesPodOperator(
         namespace="airflow",
-        image="robinlinacre/airflow-occupeye-scraper:firsttry",
+        image="robinlinacre/airflow-occupeye-scraper:second",
         cmds=["bash", "-c"],
         arguments=["python main.py --task_name surveys_to_s3"],
         labels={"foo": "bar"},
