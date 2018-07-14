@@ -7,12 +7,12 @@ log = LoggingMixin().log
 try:
     from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 
-    args = {"owner": "airflow", "start_date": days_ago(1)}
+    args = {"owner": "airflow", "start_date": days_ago(3)}
 
     dag = DAG(
         dag_id="occupeye_scraper",
         default_args=args,
-        schedule_interval=None,
+        schedule_interval='@daily',
     )
 
     # Hard code surveys list due to contstrains
