@@ -34,7 +34,7 @@ try:
 
     surveys_to_s3 = KubernetesPodOperator(
         namespace="airflow",
-        image="robinlinacre/airflow-occupeye-scraper:second",
+        image="robinlinacre/airflow-occupeye-scraper:third",
         cmds=["bash", "-c"],
         arguments=["python main.py --task_name surveys_to_s3"],
         labels={"foo": "bar"},
@@ -49,7 +49,7 @@ try:
     for sid in survey_ids:
         sensor_fact_to_s3 = KubernetesPodOperator(
             namespace="airflow",
-            image="robinlinacre/airflow-occupeye-scraper:second",
+            image="robinlinacre/airflow-occupeye-scraper:third",
             cmds=["bash", "-c"],
             arguments=[f"python main.py --task_name=surveys_to_s3 --surveyid={sid} --scrape_date={{ds}}"],
             labels={"foo": "bar"},
