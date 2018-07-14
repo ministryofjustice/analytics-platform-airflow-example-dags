@@ -1,18 +1,19 @@
 from airflow.utils.dates import days_ago
 from airflow.utils.log.logging_mixin import LoggingMixin
 from airflow.models import DAG
+from datetime import datetime, timedelta
 
 log = LoggingMixin().log
 
 try:
     from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 
-    args = {"owner": "airflow", "start_date": days_ago(3)}
+    args = {"owner": "airflow", "start_date": days_ago(3), 'retries': 5, 'retry_delay': timedelta(minutes=1), 'pool': 'occupeye_pool'}
 
     dag = DAG(
         dag_id="occupeye_scraper",
         default_args=args,
-        schedule_interval='@daily',
+        schedule_interval='@daily'
     )
 
     # Hard code surveys list due to contstrains
