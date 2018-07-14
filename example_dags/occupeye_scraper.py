@@ -52,7 +52,7 @@ try:
             namespace="airflow",
             image="robinlinacre/airflow-occupeye-scraper:third",
             cmds=["bash", "-c"],
-            arguments=[f"python main.py --task_name=sensor_fact_to_s3 --survey_id={sid} --scrape_date={{ds}}"],
+            arguments=["python main.py --task_name=sensor_fact_to_s3 --survey_id={sid} --scrape_date={{{{ ds }}}}"],
             labels={"foo": "bar"},
             name="airflow-test-pod",
             in_cluster=True,
