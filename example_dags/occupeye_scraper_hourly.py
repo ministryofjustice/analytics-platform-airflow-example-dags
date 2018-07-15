@@ -8,7 +8,7 @@ log = LoggingMixin().log
 try:
     from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 
-    args = {"owner": "airflow", "start_date: datetime(2018, 7, 15, 18), 'retries': 5, 'retry_delay': timedelta(minutes=1), 'pool': 'occupeye_pool'}
+    args = {"owner": "airflow", "start_date": datetime(2018, 7, 15, 18), "retries": 5, "retry_delay": timedelta(minutes=1), "pool": "occupeye_pool"}
 
     dag = DAG(
         dag_id="occupeye_scraper_hourly",

@@ -8,7 +8,7 @@ log = LoggingMixin().log
 try:
     from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 
-    args = {"owner": "airflow", "start_date: datetime(2017, 1, 1), 'retries': 5, 'retry_delay': timedelta(minutes=5), 'pool': 'occupeye_pool'}
+    args = {"owner": "airflow", "start_date": datetime(2017, 1, 1), "retries": 5, "retry_delay": timedelta(minutes=5), "pool": "occupeye_pool"}
 
     dag = DAG(
         dag_id="occupeye_scraper_daily",
@@ -24,7 +24,7 @@ try:
         labels={"foo": "bar"},
         name="airflow-test-pod",
         in_cluster=True,
-        task_id="surveys_to_s3",
+        task_id="scrape_all",
         get_logs=True,
         dag=dag,
         annotations={"iam.amazonaws.com/role": "dev_ravi_test_airflow_assume_role"},
