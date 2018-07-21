@@ -10,7 +10,7 @@ try:
 
     args = {"owner": "Robin",
             "start_date": datetime(2014, 7, 14),
-            "retries": 2,
+            "retries": 5,
             "retry_delay": timedelta(minutes=50),
             "email": ["robin.linacre@digital.justice.gov.uk"],
             "pool": "occupeye_pool"}
