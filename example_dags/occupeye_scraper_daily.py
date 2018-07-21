@@ -20,7 +20,7 @@ try:
         namespace="airflow",
         image="robinlinacre/airflow-occupeye-scraper:v5",
         cmds=["bash", "-c"],
-        arguments=["python main.py --scrape_type=daily --scrape_datetime={{ts}} --next_execution_date={{next_execution_date}}"],
+        arguments=["python main.py --scrape_type=daily --scrape_datetime='{{ts}}' --next_execution_date='{{next_execution_date}}'"],
         labels={"foo": "bar"},
         name="airflow-test-pod",
         in_cluster=True,
