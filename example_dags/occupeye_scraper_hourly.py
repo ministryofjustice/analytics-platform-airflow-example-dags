@@ -8,7 +8,7 @@ log = LoggingMixin().log
 try:
     from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 
-    args = {"owner": "airflow", "start_date": datetime(2018, 7, 15, 18), "retries": 5, "retry_delay": timedelta(minutes=1), "pool": "occupeye_pool"}
+    args = {"owner": "Robin", "start_date": datetime(2018, 7, 15, 18), "retries": 5, "retry_delay": timedelta(minutes=5), "pool": "occupeye_pool"}
 
     dag = DAG(
         dag_id="occupeye_scraper_hourly",
@@ -18,9 +18,9 @@ try:
 
     surveys_to_s3 = KubernetesPodOperator(
         namespace="airflow",
-        image="robinlinacre/airflow-occupeye-scraper:v4",
+        image="robinlinacre/airflow-occupeye-scraper:v5",
         cmds=["bash", "-c"],
-        arguments=["python main.py --scrape_type=hourly --scrape_datetime={{ts}}"],
+        arguments=["python main.py --scrape_type=hourly --scrape_datetime={{ts}} --next_execution_date={{next_execution_date}}"],
         labels={"foo": "bar"},
         name="airflow-test-pod",
         in_cluster=True,
@@ -29,9 +29,6 @@ try:
         dag=dag,
         annotations={"iam.amazonaws.com/role": "dev_ravi_test_airflow_assume_role"},
     )
-
-
-
 
 except ImportError as e:
     log.warn("Could not import KubernetesPodOperator: " + str(e))
