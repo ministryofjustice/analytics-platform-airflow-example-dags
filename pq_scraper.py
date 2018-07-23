@@ -58,7 +58,7 @@ task_catchup = KubernetesPodOperator(
 # Update last REUPDATE_LAST_N_DAYS days
 dag_recent_pqs = DAG(
     "pq_scraper_recent",
-    start_date=days_ago(1),
+    start_date=days_ago(2),
     schedule_interval=timedelta(days=1),
     default_args=task_args,
     description="Get answered parliamentary questions (PQ) from parliament.uk API",
