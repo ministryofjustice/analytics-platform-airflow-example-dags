@@ -27,6 +27,7 @@ try:
     surveys_to_s3 = KubernetesPodOperator(
         namespace="airflow",
         image=SCRAPER_IMAGE,
+        imagePullPolicy='Always',
         cmds=["bash", "-c"],
         arguments=["python main.py"],
         labels={"foo": "bar"},
@@ -37,8 +38,6 @@ try:
         dag=dag,
         annotations={"iam.amazonaws.com/role": SCRAPER_IAM_ROLE},
     )
-
-
 
 except ImportError as e:
     log.warn("Could not import KubernetesPodOperator: " + str(e))
