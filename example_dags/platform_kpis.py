@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 log = LoggingMixin().log
 
-SCRAPER_IMAGE = "quay.io/airflow-elasticsearch-kpis:latest"
+SCRAPER_IMAGE = "quay.io/mojanalytics/airflow-elasticsearch-kpis:latest"
 SCRAPER_IAM_ROLE = "alpha_airflow_platform_kpis "
 
 
