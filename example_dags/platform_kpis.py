@@ -15,13 +15,13 @@ try:
     args = {"owner": "Robin",
             "start_date": days_ago(0),
             "retries": 3,
-            "retry_delay": timedelta(minutes=50),
+            "retry_delay": timedelta(minutes=30),
             "email": ["robin.linacre@digital.justice.gov.uk"]}
 
     dag = DAG(
         dag_id="platform_kpi_scraper",
         default_args=args,
-        schedule_interval='0 1 * * *',
+        schedule_interval='0 * * * *',
     )
     # https://github.com/apache/incubator-airflow/blob/5a3f39913739998ca2e9a17d0f1d10fccb840d36/airflow/contrib/operators/kubernetes_pod_operator.py#L129
     surveys_to_s3 = KubernetesPodOperator(
