@@ -21,7 +21,7 @@ try:
     dag = DAG(
         dag_id="natstats_postcodes",
         default_args=args,
-        schedule_interval='@once',
+        schedule_interval='@hourly',
     )
     # https://github.com/apache/incubator-airflow/blob/5a3f39913739998ca2e9a17d0f1d10fccb840d36/airflow/contrib/operators/kubernetes_pod_operator.py#L129
     surveys_to_s3 = KubernetesPodOperator(
