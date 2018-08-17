@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 log = LoggingMixin().log
 
 SCRAPER_IMAGE = "quay.io/mojanalytics/airflow-glue-test:latest"
-SCRAPER_IAM_ROLE = "alpha_airflow_glue_test"
+SCRAPER_IAM_ROLE = "airflow_glue_test"
 
 
 try:
