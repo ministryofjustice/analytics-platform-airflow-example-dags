@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 log = LoggingMixin().log
 
 SCRAPER_IMAGE = "quay.io/mojanalytics/airflow-elasticsearch-kpis:latest"
-SCRAPER_IAM_ROLE = "alpha_airflow_platform_kpis"
+SCRAPER_IAM_ROLE = "airflow_platform_kpis"
 
 
 try:
