@@ -33,6 +33,7 @@ dag_flattener = DAG(
     default_args=task_args,
     description="Aggregate parliamentary questions (PQ) raw JSON data into a single, flat, CSV file",
     start_date=START_DATE,
+    catchup=False,
     schedule_interval=timedelta(days=1),
 )
 
