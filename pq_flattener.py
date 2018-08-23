@@ -6,7 +6,7 @@ from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOpera
 from airflow.utils.dates import days_ago
 
 
-FLATTENER_IMAGE = "quay.io/mojanalytics/pq_flattener:v0.0.10"
+FLATTENER_IMAGE = "quay.io/mojanalytics/pq_flattener:v0.1.0"
 FLATTENER_IAM_ROLE = "dev_pq_flattener"
 FLATTENER_S3_BUCKET = "dev-aldo-test-20170927-1505"
 FLATTENER_SOURCE_PATH = "pq_raw"
