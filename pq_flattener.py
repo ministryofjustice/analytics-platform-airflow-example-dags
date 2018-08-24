@@ -6,11 +6,12 @@ from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOpera
 from airflow.utils.dates import days_ago
 
 
-FLATTENER_IMAGE = "quay.io/mojanalytics/pq_flattener:v0.1.0"
+FLATTENER_IMAGE = "quay.io/mojanalytics/pq_flattener:v1.0.0"
 FLATTENER_IAM_ROLE = "dev_pq_flattener"
-FLATTENER_S3_BUCKET = "dev-aldo-test-20170927-1505"
-FLATTENER_SOURCE_PATH = "pq_raw"
-FLATTENER_DEST_PATH = "pq_flat"
+
+FLATTENER_GLUE_JOB_BUCKET = "dev-cds-curated-open-data"
+FLATTENER_SOURCE_PATH = f"s3://dev-cds-raw/open_data/parliamentary_questions/"
+FLATTENER_DEST_PATH = f"s3://dev-cds-curated-open-data/parliamentary_questions/"
 
 START_DATE = datetime(2018, 8, 15)
 
@@ -42,7 +43,7 @@ task_flattener = KubernetesPodOperator(
     namespace="airflow",
     image=FLATTENER_IMAGE,
     env_vars={
-        "PQ_FLATTENER_S3_BUCKET": FLATTENER_S3_BUCKET,
+        "PQ_FLATTENER_GLUE_JOB_BUCKET": FLATTENER_GLUE_JOB_BUCKET,
         "PQ_FLATTENER_SOURCE_PATH": FLATTENER_SOURCE_PATH,
         "PQ_FLATTENER_DEST_PATH": FLATTENER_DEST_PATH,
         "PQ_FLATTENER_JOB_IAM_ROLE": FLATTENER_IAM_ROLE,
