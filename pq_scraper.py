@@ -8,8 +8,8 @@ from airflow.utils.dates import days_ago
 
 SCRAPER_IMAGE = "quay.io/mojanalytics/pq_scraper:v0.1.2"
 SCRAPER_IAM_ROLE = "dev_pq_scraper_dag"
-SCRAPER_S3_BUCKET = "dev-aldo-test-20170927-1505"
-SCRAPER_S3_OBJECT_PREFIX = "pq_raw/answered_questions_"
+SCRAPER_S3_BUCKET = "dev-cds-raw"
+SCRAPER_S3_OBJECT_PREFIX = "open_data/parliamentary_questions/answered_questions_"
 
 CATCHUP_START = datetime(2018, 2, 1)
 REUPDATE_LAST_N_DAYS = 31
