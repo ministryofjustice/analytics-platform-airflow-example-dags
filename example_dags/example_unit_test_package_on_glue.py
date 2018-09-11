@@ -12,7 +12,7 @@ from airflow.utils.trigger_rule import TriggerRule
 
 import boto3
 
-UNIT_TEST_IMAGE = "quay.io/mojanalytics/gluejobutils_unit_test:v0.0.1"
+UNIT_TEST_IMAGE = "quay.io/mojanalytics/airflow-gluejobutils-unit-test:v0.0.1"
 UNIT_TEST_IAM_ROLE = "airflow_gluejobutils_unit_test"
 
 GLUEJOBUTILS_GLUE_JOB_BUCKET = "alpha-gluejobutils"
