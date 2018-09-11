@@ -25,7 +25,7 @@ task_args = {
     "max_retry_delay": timedelta(minutes=15),
     "execution_timeout": timedelta(minutes=10),
     "owner": "xoen",
-    "email": ["aldogiambelluca@digital.justice.gov.uk"],
+    "email": ["aldo.giambelluca@digital.justice.gov.uk"],
 }
 
 # Catch-up on dates before today-REUPDATE_LAST_N_DAYS days
