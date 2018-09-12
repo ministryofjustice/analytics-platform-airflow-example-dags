@@ -33,6 +33,7 @@ try:
         get_logs=True,
         dag=dag,
         annotations={"iam.amazonaws.com/role": "dev_ravi_test_airflow_assume_role"},
+        image_pull_policy='Always'
     )
 
 
