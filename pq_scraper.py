@@ -18,7 +18,7 @@ REUPDATE_LAST_N_DAYS = 31
 task_args = {
     "depends_on_past": False,
     "email_on_failure": True,
-    "email_on_retry": True,
+    "email_on_retry": False,
     "retries": 15,
     "retry_delay": timedelta(seconds=30),
     "retry_exponential_backoff": True,
