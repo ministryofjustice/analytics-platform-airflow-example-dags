@@ -9,7 +9,7 @@ try:
     from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 
     args = {"owner": "Robin",
-            "start_date": datetime(2018, 10, 14),
+            "start_date": datetime(2018, 10, 28),
             "retries": 2,
             "retry_delay": timedelta(minutes=50),
             "email": ["robin.linacre@digital.justice.gov.uk"],
