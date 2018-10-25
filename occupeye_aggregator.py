@@ -23,7 +23,7 @@ try:
 
     surveys_to_s3 = KubernetesPodOperator(
         namespace="airflow",
-        image="quay.io/mojanalyticsairflow-occupeye-dashboard-aggregation:dockerise",
+        image="quay.io/mojanalytics/airflow-occupeye-dashboard-aggregation:dockerise",
         cmds=["bash", "-c"],
         arguments=["Rscript main.R"],
         labels={"foo": "bar"},
