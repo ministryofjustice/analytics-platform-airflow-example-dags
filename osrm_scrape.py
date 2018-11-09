@@ -3,6 +3,7 @@ from airflow.utils.dates import days_ago
 from airflow.utils.log.logging_mixin import LoggingMixin
 from airflow.models import DAG
 from datetime import datetime, timedelta
+from airflow.utils.dates import days_ago
 
 log = LoggingMixin().log
 
@@ -11,7 +12,8 @@ try:
 
     args = {"owner": "Robin",
             "retries":0,
-            "email": ["robin.linacre@digital.justice.gov.uk"]}
+            "email": ["robin.linacre@digital.justice.gov.uk"],
+            "start_date": days_ago(1)}
 
     dag = DAG(
         dag_id="osrm_scrape",
