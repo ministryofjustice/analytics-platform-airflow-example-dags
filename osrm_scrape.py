@@ -44,7 +44,7 @@ try:
         labels={"foo": "bar"},
         name="airflow-test-pod",
         in_cluster=True,
-        task_id="scrape_all",
+        task_id="deduplicate_and_partition",
         get_logs=True,
         dag=dag,
         annotations={"iam.amazonaws.com/role": "airflow_osrm_scraper"},
