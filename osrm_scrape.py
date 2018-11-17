@@ -51,7 +51,7 @@ try:
         image_pull_policy='Always'
     )
 
-osrm_scrape >> run_gluejob
+    osrm_scrape >> run_gluejob
 
 except ImportError as e:
     log.warn("Could not import KubernetesPodOperator: " + str(e))
