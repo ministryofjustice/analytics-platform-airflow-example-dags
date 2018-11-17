@@ -23,11 +23,11 @@ try:
 
     osrm_scrape = KubernetesPodOperator(
         namespace="airflow",
-        image="593291632749.dkr.ecr.eu-west-1.amazonaws.com/airflow-osrm-scrape:v0.0.4",
+        image="593291632749.dkr.ecr.eu-west-1.amazonaws.com/airflow-osrm-scrape:v0.0.5",
         cmds=["bash", "-c"],
         arguments=["python main.py"],
         labels={"foo": "bar"},
-        name="airflow-test-pod",
+        name="osrm-pod-scrape",
         in_cluster=True,
         task_id="scrape_all",
         get_logs=True,
@@ -38,11 +38,11 @@ try:
 
     run_gluejob = KubernetesPodOperator(
         namespace="airflow",
-        image="593291632749.dkr.ecr.eu-west-1.amazonaws.com/airflow-osrm-scrape:v0.0.4",
+        image="593291632749.dkr.ecr.eu-west-1.amazonaws.com/airflow-osrm-scrape:v0.0.5",
         cmds=["bash", "-c"],
         arguments=["python run_glue.py"],
         labels={"foo": "bar"},
-        name="airflow-test-pod",
+        name="osrm-pod-glue",
         in_cluster=True,
         task_id="deduplicate_and_partition",
         get_logs=True,
