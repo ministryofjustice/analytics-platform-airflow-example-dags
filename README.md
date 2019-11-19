@@ -1,9 +1,10 @@
 # Airflow Example DAGs
 
-
 > Example DAGs for users to refer to when writing their own
 
 These are example DAGs for apache-airflow 
+
+**NOTE**: Currently used by `dev` instance of Airflow (see [default values for `airflow-k8s` helm chart](https://github.com/ministryofjustice/analytics-platform-helm-charts/blob/master/charts/airflow-k8s/values.yaml#L45))
 
 ### What is a DAG
 In Airflow, a `DAG`—or a Directed Acyclic Graph—is a collection of all the tasks you want to run, organized in a way that reflects their relationships and dependencies.
